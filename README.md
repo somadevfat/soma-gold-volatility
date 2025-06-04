@@ -23,7 +23,7 @@
 *   `gold-vola-gui.pine`: PCのブラウザ表示に最適化されたインジケーターコードです。
 *   `gold-vola-gui-mobile.pine`: スマートフォンのTradingViewアプリ表示に最適化されたインジケーターコードです。
 *   `picture/pcチャート画像.png`: PC版インジケーターの表示例です。
-    *   <img src="picture/pcチャート画像.png" width="500" alt="PC版チャート">
+    *   <img src="picture/pcチャート画像.png" width="1000" alt="PC版チャート">
 *   `picture/mobile画像.jpg`: モバイル版インジケーターの表示例です。
     *   <img src="picture/mobile画像.jpg" width="300" alt="モバイル版チャート">
 *   `LICENSE`: 本プロジェクトのライセンス情報です。
