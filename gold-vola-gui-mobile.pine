@@ -1,0 +1,124 @@
+// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © rqmeer3
+
+//@version=5
+indicator('デイボラスマホ版',overlay = true)
+//デイボラ
+DayHigh = request.security(syminfo.ticker, "D", high, barmerge.gaps_off, barmerge.lookahead_off)
+DayLow = request.security(syminfo.ticker, "D", low, barmerge.gaps_off, barmerge.lookahead_off)
+DayOpen = request.security(syminfo.ticker, "D", ta.sma(open,1), barmerge.gaps_off, barmerge.lookahead_off)
+HHigh = request.security(syminfo.ticker, "60", high, barmerge.gaps_off, barmerge.lookahead_off)
+HLow = request.security(syminfo.ticker, "60", low, barmerge.gaps_off, barmerge.lookahead_off)
+//plot(DayOpen,color=color.aqua)
+
+DHigh =DayHigh - 6.0
+DLow = DayLow  + 6.0
+
+Daybora = DayHigh - DayLow
+Hbora = HHigh - HLow
+
+txt = str.tostring(Daybora)
+txt2 = str.tostring(DayHigh)
+txt3 = str.tostring(DayLow)
+
+//テーブルを定義する
+var test_table = table.new(position = position.top_right,columns=1,rows=3,border_color=color.black,border_width=1,frame_color=color.white,frame_width=1)
+
+//テーブルのセルに値を入れる
+table.cell(test_table,column=0, row=0, text= "B = " + txt , width=20, height=5, text_color=color.white, bgcolor=color.gray, text_size=size.small)
+table.cell(test_table,column=0, row=1, text= " H = " + txt2 , width=20, height=5, text_color=color.white, bgcolor=color.gray, text_size=size.small)
+table.cell(test_table,column=0, row=2, text= " L = " + txt3 , width=20, height=5, text_color=color.white, bgcolor=color.gray, text_size=size.small)
+
+var line_obj = line.new(0, low, bar_index, high, color=color.white, width=3, extend=extend.right,style = line.style_dotted)
+line.set_xy1(line_obj, bar_index[0], DayHigh)
+line.set_xy2(line_obj, bar_index[5], DayHigh)
+
+var line_obj2 = line.new(0, low, bar_index, high, color=color.white, width=3, extend=extend.right,style = line.style_dotted)
+line.set_xy1(line_obj2, bar_index[0], DayLow)
+line.set_xy2(line_obj2, bar_index[5], DayLow)
+
+var line_obj3 = line.new(0, low, bar_index, high, color=color.white ,width=3, extend=extend.right)
+line.set_xy1(line_obj3, bar_index[0], DayOpen)
+line.set_xy2(line_obj3, bar_index[5], DayOpen)
+
+var line_low10 = line.new(0, low, bar_index, high, color=color.rgb(243, 40, 33) ,width=3, extend=extend.right)
+line.set_xy1(line_low10, bar_index[0], DayLow+10)
+line.set_xy2(line_low10, bar_index[5], DayLow+10)
+
+var line_high10 = line.new(0, low, bar_index, high, color=#653bff ,width=3, extend=extend.right)
+line.set_xy1(line_high10, bar_index[0], DayHigh-10)
+line.set_xy2(line_high10, bar_index[5], DayHigh-10)
+
+var line_low20 = line.new(0, low, bar_index, high, color=#f38021 ,width=3, extend=extend.right)
+line.set_xy1(line_low20, bar_index[0], DayLow+20)
+line.set_xy2(line_low20, bar_index[5], DayLow+20)
+
+var line_high20 = line.new(0, low, bar_index, high, color=#3be2ff ,width=3, extend=extend.right)
+line.set_xy1(line_high20, bar_index[0], DayHigh-20)
+line.set_xy2(line_high20, bar_index[5], DayHigh-20)
+
+var line_low30 = line.new(0, low, bar_index, high, color=color.rgb(229, 243, 33) ,width=3, extend=extend.right)
+line.set_xy1(line_low30, bar_index[0], DayLow+30)
+line.set_xy2(line_low30, bar_index[5], DayLow+30)
+
+var line_high30 = line.new(0, low, bar_index, high, color=color.rgb(59, 72, 255) ,width=3, extend=extend.right)
+line.set_xy1(line_high30, bar_index[0], DayHigh-30)
+line.set_xy2(line_high30, bar_index[5], DayHigh-30)
+
+var line_low40 = line.new(0, low, bar_index, high, color=#f38021 ,width=3, extend=extend.right)
+line.set_xy1(line_low40, bar_index[0], DayLow+40)
+line.set_xy2(line_low40, bar_index[5], DayLow+40)
+
+var line_high40 = line.new(0, low, bar_index, high, color=#3be2ff ,width=3, extend=extend.right)
+line.set_xy1(line_high40, bar_index[0], DayHigh-40)
+line.set_xy2(line_high40, bar_index[5], DayHigh-40)
+
+var line_low50 = line.new(0, low, bar_index, high, color=color.rgb(51, 243, 33) ,width=3, extend=extend.right)
+line.set_xy1(line_low50, bar_index[0], DayLow+50)
+line.set_xy2(line_low50, bar_index[5], DayLow+50)
+
+var line_high50 = line.new(0, low, bar_index, high, color=#ff3bf5 ,width=3, extend=extend.right)
+line.set_xy1(line_high50, bar_index[0], DayHigh-50)
+line.set_xy2(line_high50, bar_index[5], DayHigh-50)
+
+var line_low60 = line.new(0, low, bar_index, high, color=#3af321 ,width=3, extend=extend.right)
+line.set_xy1(line_low60, bar_index[0], DayLow+60)
+line.set_xy2(line_low60, bar_index[5], DayLow+60)
+
+var line_high60 = line.new(0, low, bar_index, high, color=color.rgb(248, 59, 255) ,width=3, extend=extend.right)
+line.set_xy1(line_high60, bar_index[0], DayHigh-60)
+line.set_xy2(line_high60, bar_index[5], DayHigh-60)
+
+
+//アラート
+//10,20<=条件式
+Ale10 = DayLow+10 <= close[1] and DayLow+10 >= close[2]
+Ale20 = DayLow+20 <= close[1] and DayLow+10 >= close[2]
+
+//-10,-20>=アラート
+AleM10 = DayHigh-10 >= close[1] and DayHigh-10 <= close[2]
+AleM20 = DayHigh-20 >= close[1] and DayHigh-20 <= close[2]
+string arahantei = Ale10 ? "10ドル上がった" : Ale20 ? "20ドル上がった" : AleM10 ? "10ドル下がった" : AleM20 ? "20ドル下がった" : "nocome"
+alertcondition(Ale10 or Ale20 or AleM10 or AleM20,"10,20ドル動いた","10,20ドル動いた")
+
+
+conversionPeriods = input.int(9, minval=1, title='Conversion Line Periods')
+basePeriods = input.int(26, minval=1, title='Base Line Periods')
+laggingSpan2Periods = input.int(52, minval=1, title='Lagging Span 2 Periods')
+displacement = input.int(26, minval=1, title='Displacement')
+
+donchian(len) =>
+    math.avg(ta.lowest(len), ta.highest(len))
+
+conversionLine = donchian(conversionPeriods)
+baseLine = donchian(basePeriods)
+leadLine1 = math.avg(conversionLine, baseLine)
+leadLine2 = donchian(laggingSpan2Periods)
+
+//plot(conversionLine, color=#0496ff, title="Conversion Line")
+//plot(baseLine, color=#991515, title="Base Line")
+//plot(close, offset = -displacement, color=#459915, title="Lagging Span")
+
+p1 = plot(leadLine1, offset=displacement, color=color.new(color.green, 0), title='Lead 1')
+p2 = plot(leadLine2, offset=displacement, color=color.new(color.red, 0), title='Lead 2')
+fill(p1, p2, color=leadLine1 > leadLine2 ? color.green : color.red, transp=90)
