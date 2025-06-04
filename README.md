@@ -26,7 +26,6 @@
     *   <img src="picture/pcチャート画像.png" width="1000" alt="PC版チャート">
 *   `picture/mobile画像.jpg`: モバイル版インジケーターの表示例です。
     *   <img src="picture/mobile画像.jpg" width="300" alt="モバイル版チャート">
-*   `LICENSE`: 本プロジェクトのライセンス情報です。
 
 ## 使用方法
 
